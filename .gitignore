@@ -1,3 +1,2 @@
 .env
 src/nginx/certbot
-src/nuxt

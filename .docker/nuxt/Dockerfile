@@ -23,8 +23,8 @@ ENV NODE_ENV=development
 # Run local
 FROM base as local
 
-CMD tail -f /dev/null
-# CMD [ "npm", "run", "dev" ]
+# CMD tail -f /dev/null
+CMD [ "npm", "run", "dev" ]
 
 #===================================================
 
