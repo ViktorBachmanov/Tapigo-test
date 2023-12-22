@@ -12,16 +12,32 @@ export const usePostsStore = defineStore('posts', () => {
     },
   ])
 
-  function storeComment(parentType, parentId, comment) {
-    switch (parentType) {
-      case 'post':
-        const post = posts.value.find(post => post.id === parentId)
-        post.comments.push(comment)
-        break;
-      case 'comment':
-        break;
+  const commentId = ref(0)
+
+  function storeComment(parentType, parentId, text) {
+    const newComment = { 
+      id: ++commentId.value,
+      parentType,
+      parentId,
+      text,
     }
 
+    switch (parentType) {
+      case 'post':
+        const parentPost = posts.value.find(post => post.id === parentId)
+        parentPost.comments.push({ ...newComment, comments: [] })
+        break;
+      case 'comment':
+        let parentComment 
+        for (let i = 0; i < posts.value.length; i++) {
+          parentComment = posts.value[i].comments.find(comment => comment.id === parentId)
+          if (parentComment) {
+            break
+          }
+        }
+        parentComment.comments.push(newComment)
+        break;
+    }
   }
 
   return { posts, storeComment }

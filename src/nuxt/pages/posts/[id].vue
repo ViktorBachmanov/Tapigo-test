@@ -8,7 +8,6 @@ const postsStore = usePostsStore()
 const { posts } = storeToRefs(postsStore)
 
 const post = posts.value.find(post => post.id == route.params.id)
-// const title = post.title
 
 const commentCreatingDialog = ref(null)
 function createComment() {
@@ -21,8 +20,8 @@ function createComment() {
   Post {{ post.title }}
 
   <ul>
-    <li v-for="comment in post.comments">
-      {{ comment }}
+    <li v-for="comment in post.comments" :key="comment.id">
+      <TheComment :id="comment.id" :text="comment.text" :comments="comment.comments" />
     </li>
   </ul>
 
