@@ -1,0 +1,7 @@
+services:
+  nuxt:
+    ports:
+      - "24678:24678"
+    volumes:
+      - ./src/nuxt:/src
+    

@@ -1,0 +1,30 @@
+services:
+  nginx:
+    build: 
+      context: ./src/nginx
+      dockerfile: ../../.docker/nginx/Dockerfile
+      target: ${TARGET}
+    ports: 
+      - "82:82"
+    restart: always
+    volumes:
+      - ./src/nuxt:/var/www/html/
+    networks:
+      - internal
+
+  nuxt:
+    build:
+      context: ./src/nuxt
+      dockerfile: ../../.docker/nuxt/Dockerfile
+      target: ${TARGET}
+      args:
+        HOST_UID: $HOST_UID
+    ports:
+      - "3000:3000"
+    networks:
+      - internal
+      
+
+networks:
+  internal:
+    driver: bridge
