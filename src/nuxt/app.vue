@@ -1,5 +1,9 @@
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <!-- <NuxtWelcome /> -->
+
+  <UContainer>
+    <ColorModeButton />
+  </UContainer>
+
+  <NuxtPage />
 </template>
