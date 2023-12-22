@@ -2,8 +2,10 @@
 import { storeToRefs } from 'pinia'
 import { usePostsStore } from '~/stores/posts.js'
 
+
 const postsStore = usePostsStore()
 const { posts } = storeToRefs(postsStore)
+
 </script>
 
 <template>
