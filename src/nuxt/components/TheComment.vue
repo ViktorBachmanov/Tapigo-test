@@ -3,6 +3,7 @@ const props = defineProps({
   id: Number,
   text: String,
   comments: Array,
+  commentTo: String,
 })
 
 const commentCreatingDialog = ref(null)
@@ -13,18 +14,19 @@ function createComment() {
 
 
 <template>
-  <UCard>
+  <UCard class="m-2">
     <template #header>
-      Comment
+      Comment to {{ commentTo }}
     </template>
 
     {{ text }}
 
     <template #footer>
       <div v-if="comments">
-        <TheComment v-for="comment in comments" :key="comment.id" :id="comment.id" :text="comment.text" />
+        <TheComment v-for="comment in comments" :key="comment.id" :id="comment.id" :text="comment.text"
+          commentTo="comment" />
 
-        <UButton label="Add comment" @click="createComment()" />
+        <UButton label="Add comment" @click="createComment()" class="m-2" />
       </div>
     </template>
   </UCard>

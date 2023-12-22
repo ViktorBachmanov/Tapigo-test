@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <h3>Hello, Tapigo!</h3>
-
-  <NuxtLink to="/posts">Posts</NuxtLink>
+  <NuxtLink to="/posts">
+    <UButton label="Go to posts" class="m-4" />
+  </NuxtLink>
 </template>

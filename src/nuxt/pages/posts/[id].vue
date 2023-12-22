@@ -32,10 +32,10 @@ function createComment() {
     <template #footer>
       <ul v-if="post.comments.length">
         <li v-for="comment in post.comments" :key="comment.id">
-          <TheComment :id="comment.id" :text="comment.text" :comments="comment.comments" />
+          <TheComment :id="comment.id" :text="comment.text" :comments="comment.comments" commentTo="post" />
         </li>
       </ul>
-      <UButton label="Add comment" @click="createComment()" />
+      <UButton label="Add comment" @click="createComment()" class="m-2" />
     </template>
   </UCard>
 
