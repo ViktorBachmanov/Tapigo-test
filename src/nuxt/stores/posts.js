@@ -3,12 +3,20 @@ export const usePostsStore = defineStore('posts', () => {
     {
       id: 1,
       title: 'Post-1',
+      shortDesc: 'Puanson stock',
+      fullDesc: 'Puanson before machining',
+      image: '/puanson.jpg',
       comments: [],
+      date: '22.12.2023',
     },
     {
       id: 2,
       title: 'Post-2',
+      shortDesc: 'Puanson first step',
+      fullDesc: 'Puanson first step of machining',
+      image: '/puanson1.jpg',
       comments: [],
+      date: '22.12.2023',
     },
   ])
 

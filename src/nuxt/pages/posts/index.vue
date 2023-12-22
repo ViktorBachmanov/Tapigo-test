@@ -9,11 +9,23 @@ const { posts } = storeToRefs(postsStore)
 </script>
 
 <template>
-  <h3>Hello, Tapigo!</h3>
+  <h1 class="m-5">Posts</h1>
 
   <ul>
-    <li v-for="post in posts" :key="post.id">
-      <NuxtLink :to="`/posts/${post.id}`">{{ post.title }}</NuxtLink>
+    <li v-for="post in posts" :key="post.id" class="m-3">
+      <NuxtLink :to="`/posts/${post.id}`">
+        <UCard>
+          <template #header>
+            {{ post.title }}
+          </template>
+
+          <div class="flex">
+            <img :src="`/pics/${post.image}`" :alt="post.image" class="w-16 m-2" />
+            {{ post.shortDesc }}
+          </div>
+
+        </UCard>
+      </NuxtLink>
     </li>
   </ul>
 </template>

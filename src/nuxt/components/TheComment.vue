@@ -1,7 +1,5 @@
 <script setup>
 const props = defineProps({
-  // parentType: String,
-  // parentId: Number,
   id: Number,
   text: String,
   comments: Array,
@@ -26,7 +24,7 @@ function createComment() {
       <div v-if="comments">
         <TheComment v-for="comment in comments" :key="comment.id" :id="comment.id" :text="comment.text" />
 
-        <UButton label="Create comment" @click="createComment()" />
+        <UButton label="Add comment" @click="createComment()" />
       </div>
     </template>
   </UCard>
